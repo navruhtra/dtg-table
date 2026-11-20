@@ -1,0 +1,522 @@
+{
+ "referee": {
+  "version": 1,
+  "n": 1.7,
+  "whiteLab": [
+   96,
+   0,
+   1.5
+  ],
+  "printWidthIn": 12,
+  "hash": "784fd18c9c49b36f"
+ },
+ "cases": 15,
+ "summary": {
+  "rip-proxy": {
+   "dE_mean": 0.66,
+   "dE_p95": 1.695,
+   "white_in2": 1586.753,
+   "banding": 0.759
+  },
+  "table-full": {
+   "dE_mean": 1.062,
+   "dE_p95": 3.114,
+   "white_in2": 997.497,
+   "banding": 2.768
+  },
+  "table-reach": {
+   "dE_mean": 2.769,
+   "dE_p95": 7.466,
+   "white_in2": 517.882,
+   "banding": 0.668
+  },
+  "reach-n1.7": {
+   "dE_mean": 0.652,
+   "dE_p95": 2.254,
+   "white_in2": 587.261,
+   "banding": 0.467
+  }
+ },
+ "rows": [
+  {
+   "case": "04-hue-wheel-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.851,
+   "dE_p95": 1.81,
+   "white_in2": 94.829,
+   "banding": 0.01
+  },
+  {
+   "case": "04-hue-wheel-black",
+   "config": "table-full",
+   "dE_mean": 0.851,
+   "dE_p95": 1.81,
+   "white_in2": 94.829,
+   "banding": 0.01
+  },
+  {
+   "case": "04-hue-wheel-black",
+   "config": "table-reach",
+   "dE_mean": 3.638,
+   "dE_p95": 8.638,
+   "white_in2": 77.82,
+   "banding": 0.248
+  },
+  {
+   "case": "04-hue-wheel-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.912,
+   "dE_p95": 1.81,
+   "white_in2": 83.464,
+   "banding": 0.199
+  },
+  {
+   "case": "05-neutral-ramps-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.001,
+   "dE_p95": 0,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "05-neutral-ramps-black",
+   "config": "table-full",
+   "dE_mean": 0.887,
+   "dE_p95": 4.132,
+   "white_in2": 67.552,
+   "banding": 2.491
+  },
+  {
+   "case": "05-neutral-ramps-black",
+   "config": "table-reach",
+   "dE_mean": 4.817,
+   "dE_p95": 14.332,
+   "white_in2": 25.793,
+   "banding": 0.236
+  },
+  {
+   "case": "05-neutral-ramps-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.608,
+   "dE_p95": 2.462,
+   "white_in2": 33.692,
+   "banding": 0.179
+  },
+  {
+   "case": "06-fine-detail-spot-white",
+   "config": "rip-proxy",
+   "dE_mean": 1.689,
+   "dE_p95": 2.369,
+   "white_in2": 0,
+   "banding": 0.174
+  },
+  {
+   "case": "06-fine-detail-spot-white",
+   "config": "table-full",
+   "dE_mean": 1.69,
+   "dE_p95": 2.369,
+   "white_in2": 0,
+   "banding": 0.192
+  },
+  {
+   "case": "06-fine-detail-spot-white",
+   "config": "table-reach",
+   "dE_mean": 0.076,
+   "dE_p95": 0.128,
+   "white_in2": 0,
+   "banding": 0.008
+  },
+  {
+   "case": "06-fine-detail-spot-white",
+   "config": "reach-n1.7",
+   "dE_mean": 0.076,
+   "dE_p95": 0.128,
+   "white_in2": 0,
+   "banding": 0.008
+  },
+  {
+   "case": "07-pastels-navy",
+   "config": "rip-proxy",
+   "dE_mean": 0.573,
+   "dE_p95": 3.432,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "07-pastels-navy",
+   "config": "table-full",
+   "dE_mean": 0.835,
+   "dE_p95": 3.432,
+   "white_in2": 52.559,
+   "banding": 4.935
+  },
+  {
+   "case": "07-pastels-navy",
+   "config": "table-reach",
+   "dE_mean": 1.169,
+   "dE_p95": 3.432,
+   "white_in2": 50.258,
+   "banding": 3.982
+  },
+  {
+   "case": "07-pastels-navy",
+   "config": "reach-n1.7",
+   "dE_mean": 1.012,
+   "dE_p95": 3.432,
+   "white_in2": 50.666,
+   "banding": 4.464
+  },
+  {
+   "case": "08-earth-tones-sand",
+   "config": "rip-proxy",
+   "dE_mean": 0,
+   "dE_p95": 0,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "08-earth-tones-sand",
+   "config": "table-full",
+   "dE_mean": 1.078,
+   "dE_p95": 8.436,
+   "white_in2": 136.121,
+   "banding": 0.598
+  },
+  {
+   "case": "08-earth-tones-sand",
+   "config": "table-reach",
+   "dE_mean": 0.742,
+   "dE_p95": 4.662,
+   "white_in2": 3.641,
+   "banding": 0.27
+  },
+  {
+   "case": "08-earth-tones-sand",
+   "config": "reach-n1.7",
+   "dE_mean": 0.768,
+   "dE_p95": 4.913,
+   "white_in2": 3.798,
+   "banding": 0.245
+  },
+  {
+   "case": "09-neon-black",
+   "config": "rip-proxy",
+   "dE_mean": 1.173,
+   "dE_p95": 4.606,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "09-neon-black",
+   "config": "table-full",
+   "dE_mean": 1.539,
+   "dE_p95": 4.606,
+   "white_in2": 94.831,
+   "banding": 6.444
+  },
+  {
+   "case": "09-neon-black",
+   "config": "table-reach",
+   "dE_mean": 3.31,
+   "dE_p95": 12.102,
+   "white_in2": 73.745,
+   "banding": 1.698
+  },
+  {
+   "case": "09-neon-black",
+   "config": "reach-n1.7",
+   "dE_mean": 1.377,
+   "dE_p95": 4.606,
+   "white_in2": 77.267,
+   "banding": 0.497
+  },
+  {
+   "case": "10-vintage-3color-heather",
+   "config": "rip-proxy",
+   "dE_mean": 0.352,
+   "dE_p95": 0,
+   "white_in2": 51.924,
+   "banding": 11.158
+  },
+  {
+   "case": "10-vintage-3color-heather",
+   "config": "table-full",
+   "dE_mean": 0.352,
+   "dE_p95": 0,
+   "white_in2": 51.924,
+   "banding": 11.158
+  },
+  {
+   "case": "10-vintage-3color-heather",
+   "config": "table-reach",
+   "dE_mean": 1.359,
+   "dE_p95": 2.265,
+   "white_in2": 31.252,
+   "banding": 0.034
+  },
+  {
+   "case": "10-vintage-3color-heather",
+   "config": "reach-n1.7",
+   "dE_mean": 0.193,
+   "dE_p95": 0.112,
+   "white_in2": 33.45,
+   "banding": 0.016
+  },
+  {
+   "case": "11-skin-grain-black",
+   "config": "rip-proxy",
+   "dE_mean": 0,
+   "dE_p95": 0,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "11-skin-grain-black",
+   "config": "table-full",
+   "dE_mean": 0.185,
+   "dE_p95": 0,
+   "white_in2": 80.096,
+   "banding": 0
+  },
+  {
+   "case": "11-skin-grain-black",
+   "config": "table-reach",
+   "dE_mean": 5.565,
+   "dE_p95": 11.642,
+   "white_in2": 30.063,
+   "banding": 1.861
+  },
+  {
+   "case": "11-skin-grain-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.258,
+   "dE_p95": 0.274,
+   "white_in2": 42.084,
+   "banding": 0.161
+  },
+  {
+   "case": "12-knockout-red",
+   "config": "rip-proxy",
+   "dE_mean": 0.694,
+   "dE_p95": 1.948,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "12-knockout-red",
+   "config": "table-full",
+   "dE_mean": 1.178,
+   "dE_p95": 1.948,
+   "white_in2": 56.06,
+   "banding": 0
+  },
+  {
+   "case": "12-knockout-red",
+   "config": "table-reach",
+   "dE_mean": 1.176,
+   "dE_p95": 1.948,
+   "white_in2": 50.045,
+   "banding": 0
+  },
+  {
+   "case": "12-knockout-red",
+   "config": "reach-n1.7",
+   "dE_mean": 1.176,
+   "dE_p95": 1.948,
+   "white_in2": 50.045,
+   "banding": 0
+  },
+  {
+   "case": "13-sky-gradient-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.03,
+   "dE_p95": 0,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "13-sky-gradient-black",
+   "config": "table-full",
+   "dE_mean": 0.247,
+   "dE_p95": 0,
+   "white_in2": 91.585,
+   "banding": 0
+  },
+  {
+   "case": "13-sky-gradient-black",
+   "config": "table-reach",
+   "dE_mean": 5.419,
+   "dE_p95": 11.767,
+   "white_in2": 33.775,
+   "banding": 0.254
+  },
+  {
+   "case": "13-sky-gradient-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.281,
+   "dE_p95": 0.241,
+   "white_in2": 44.946,
+   "banding": 0.157
+  },
+  {
+   "case": "14-index-blend-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.223,
+   "dE_p95": 2.37,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "14-index-blend-black",
+   "config": "table-full",
+   "dE_mean": 0.466,
+   "dE_p95": 4.497,
+   "white_in2": 78.603,
+   "banding": 4.743
+  },
+  {
+   "case": "14-index-blend-black",
+   "config": "table-reach",
+   "dE_mean": 3.071,
+   "dE_p95": 10.484,
+   "white_in2": 48.608,
+   "banding": 0.673
+  },
+  {
+   "case": "14-index-blend-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.459,
+   "dE_p95": 4.497,
+   "white_in2": 55.005,
+   "banding": 0.22
+  },
+  {
+   "case": "15-photo-white",
+   "config": "rip-proxy",
+   "dE_mean": 2.175,
+   "dE_p95": 3.424,
+   "white_in2": 0,
+   "banding": 0.018
+  },
+  {
+   "case": "15-photo-white",
+   "config": "table-full",
+   "dE_mean": 2.202,
+   "dE_p95": 3.578,
+   "white_in2": 0,
+   "banding": 0.03
+  },
+  {
+   "case": "15-photo-white",
+   "config": "table-reach",
+   "dE_mean": 0.201,
+   "dE_p95": 0.328,
+   "white_in2": 0,
+   "banding": 0.028
+  },
+  {
+   "case": "15-photo-white",
+   "config": "reach-n1.7",
+   "dE_mean": 0.201,
+   "dE_p95": 0.328,
+   "white_in2": 0,
+   "banding": 0.028
+  },
+  {
+   "case": "16-ink-ramps-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.013,
+   "dE_p95": 0,
+   "white_in2": 144,
+   "banding": 0
+  },
+  {
+   "case": "16-ink-ramps-black",
+   "config": "table-full",
+   "dE_mean": 1.273,
+   "dE_p95": 5.418,
+   "white_in2": 90.773,
+   "banding": 10.895
+  },
+  {
+   "case": "16-ink-ramps-black",
+   "config": "table-reach",
+   "dE_mean": 5.969,
+   "dE_p95": 13.083,
+   "white_in2": 25.128,
+   "banding": 0.215
+  },
+  {
+   "case": "16-ink-ramps-black",
+   "config": "reach-n1.7",
+   "dE_mean": 0.837,
+   "dE_p95": 3.853,
+   "white_in2": 35.8,
+   "banding": 0.487
+  },
+  {
+   "case": "17-ink-to-ink-black",
+   "config": "rip-proxy",
+   "dE_mean": 0.211,
+   "dE_p95": 1.504,
+   "white_in2": 144,
+   "banding": 0.004
+  },
+  {
+   "case": "17-ink-to-ink-black",
+   "config": "table-full",
+   "dE_mean": 1.114,
+   "dE_p95": 1.557,
+   "white_in2": 102.564,
+   "banding": 0.007
+  },
+  {
+   "case": "17-ink-to-ink-black",
+   "config": "table-reach",
+   "dE_mean": 4.551,
+   "dE_p95": 13.525,
+   "white_in2": 67.754,
+   "banding": 0.366
+  },
+  {
+   "case": "17-ink-to-ink-black",
+   "config": "reach-n1.7",
+   "dE_mean": 1.148,
+   "dE_p95": 1.557,
+   "white_in2": 77.044,
+   "banding": 0.199
+  },
+  {
+   "case": "18-fade-to-shirt-white",
+   "config": "rip-proxy",
+   "dE_mean": 1.911,
+   "dE_p95": 3.955,
+   "white_in2": 0,
+   "banding": 0.015
+  },
+  {
+   "case": "18-fade-to-shirt-white",
+   "config": "table-full",
+   "dE_mean": 2.026,
+   "dE_p95": 4.932,
+   "white_in2": 0,
+   "banding": 0.018
+  },
+  {
+   "case": "18-fade-to-shirt-white",
+   "config": "table-reach",
+   "dE_mean": 0.471,
+   "dE_p95": 3.655,
+   "white_in2": 0,
+   "banding": 0.147
+  },
+  {
+   "case": "18-fade-to-shirt-white",
+   "config": "reach-n1.7",
+   "dE_mean": 0.471,
+   "dE_p95": 3.655,
+   "white_in2": 0,
+   "banding": 0.147
+  }
+ ]
+}

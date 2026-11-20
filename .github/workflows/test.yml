@@ -1,0 +1,46 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.cache/ms-playwright
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch pinned libraries and the Separation Table engine (each file checked against src/vendor.sha256)
+        run: npm run setup
+      - name: Release files agree (version.js, package.json, CHANGELOG, release notes, README)
+        run: node scripts/release.mjs check
+      - name: Third-party notices are current and every pinned file matches its SHA-256
+        run: node scripts/notices.mjs --check
+      - name: Type check
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: Benchmark gate (fixed referee, 15 test images, against benchmark/baseline.json)
+        run: npm run benchmark
+      - name: Browser end-to-end
+        run: |
+          npm install --no-save --no-package-lock --prefix .cache/pw playwright@1.49.1
+          npx --prefix .cache/pw playwright install --with-deps chromium
+          npm run e2e

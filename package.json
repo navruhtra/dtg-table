@@ -1,0 +1,25 @@
+{
+  "name": "dtg-table",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Direct-to-garment print files: garment-aware white underbase, colour and white layers for the producer's own RIP.",
+  "homepage": "https://americandreamnetwork.us/tools/printing/dtg-printing/dtg-table",
+  "repository": { "type": "git", "url": "https://github.com/navruhtra/dtg-table.git" },
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "setup": "node scripts/fetch-vendor.mjs",
+    "start": "node scripts/server.cjs",
+    "test": "node tests/check.mjs && node tests/presets.mjs && node tests/ramps.mjs && node tests/placement.mjs",
+    "typecheck": "npm install --no-save --no-package-lock --silent --prefix .cache/ts typescript@5.9.3 && .cache/ts/node_modules/.bin/tsc -p tsconfig.json",
+    "benchmark": "node benchmark/run.mjs --gate",
+    "setup:e2e": "npm install --no-save --no-package-lock --silent --prefix .cache/pw playwright@1.49.1 && npx --prefix .cache/pw playwright install chromium",
+    "e2e": "NODE_PATH=.cache/pw/node_modules:$NODE_PATH node tests/page.cjs",
+    "shots": "NODE_PATH=.cache/pw/node_modules:$NODE_PATH node scripts/shots.cjs",
+    "notices": "node scripts/notices.mjs",
+    "release:check": "node scripts/release.mjs check",
+    "targets": "node scripts/make-targets.mjs targets",
+    "sheet": "node scripts/layers-sheet.mjs"
+  },
+  "license": "MIT"
+}

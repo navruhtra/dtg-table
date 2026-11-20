@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "WebWorker"],
+    "strict": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": ["src/white.js", "src/machines.js", "src/garments.js", "src/layers.js", "src/proof.js", "src/model.js", "src/ramps.js", "src/placement.js", "src/version.js"],
+  "exclude": [".cache"]
+}

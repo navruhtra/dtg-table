@@ -1,0 +1,107 @@
+DTG Table
+Copyright (c) 2026 American Dream Network
+Licensed under the MIT License (see LICENSE).
+
+This NOTICE lists every third-party library, shared engine, data set
+and published method the tool downloads, bundles or serves. Nothing
+third-party is committed to the source tree: `npm run setup`
+(scripts/fetch-vendor.mjs) downloads them, at the pins in
+scripts/vendor-pins.mjs, into src/vendor/, and checks each file
+against src/vendor.sha256. Each upstream license applies to its own
+files; the license texts are in THIRD-PARTY-NOTICES.md.
+
+Licenses were read on 2026-11-20 from each package's package.json and
+LICENSE file as installed by scripts/fetch-vendor.mjs, and from the
+Separation Table repository's LICENSE at the pinned commit.
+
+
+1. Shared engine (src/vendor/separation-table/)
+-----------------------------------------------
+
+Separation Table engine, commit 00e00bb2b59efa600e859018d56f088b6f15361c
+  (src/vendor/separation-table/engine.js, calib.js, cli/platform.mjs,
+  output.js, sizes.js, version.js, bench.css, LICENSE)
+  License: MIT, Copyright (c) 2026 American Dream Network
+  Source:  https://github.com/navruhtra/separation-table
+  Used for: CIELAB and CIEDE2000 colour maths, the screen-print base
+           rule, the chokes, reading and fitting measured ramps
+           (wedge CSV), PNG reading and writing in Node, and the page's
+           stylesheet
+
+
+2. Libraries (src/vendor/)
+--------------------------
+
+quickhull3d 3.1.2 (src/vendor/separation-table/vendor/quickhull.js,
+  bundled with esbuild)
+  License: MIT
+  Source:  https://github.com/mauriciopoppe/quickhull3d
+  Used for: imported by the Separation Table engine (3D convex hull of
+           an art's colours). DTG Table does not call it.
+  The bundle also contains these dependencies of quickhull3d:
+    get-plane-normal 1.0.0         MIT   https://github.com/mattdesl/get-plane-normal
+    point-line-distance 1.0.1      MIT   https://github.com/mauriciopoppe/point-line-distance
+    robust-orientation 1.2.1       MIT   https://github.com/mikolalysenko/robust-orientation
+    robust-scale 1.0.2             MIT   https://github.com/mikolalysenko/robust-scale
+    robust-subtract 1.0.0          MIT   https://github.com/mikolalysenko/robust-subtract
+    robust-sum 1.0.0               MIT   https://github.com/mikolalysenko/robust-sum
+    two-product 1.0.2              MIT   https://github.com/mikolalysenko/two-product
+    two-sum 1.0.0                  MIT   https://github.com/mikolalysenko/two-sum
+    monotone-convex-hull-2d 1.0.1  MIT   https://github.com/mikolalysenko/monotone-convex-hull-2d
+    debug 4.4.3                    MIT   https://github.com/debug-js/debug
+    ms 2.1.3                       MIT   https://github.com/vercel/ms
+    gl-vec3 1.2.0                  Zlib  https://github.com/stackgl/gl-vec3
+    gl-vec4 1.0.1                  Zlib  https://github.com/stackgl/gl-vec4
+    gl-mat4 1.2.0                  Zlib  https://github.com/stackgl/gl-mat4
+    gl-quat 1.0.0                  Zlib  https://github.com/stackgl/gl-quat
+  point-line-distance ships no license file; its package.json declares
+  MIT (THIRD-PARTY-NOTICES.md quotes what it states).
+
+Build, test and benchmark tools (not served to users): esbuild 0.24.0
+(MIT, https://github.com/evanw/esbuild), TypeScript 5.9.3 (Apache-2.0,
+https://github.com/microsoft/TypeScript), Playwright 1.49.1
+(Apache-2.0, https://github.com/microsoft/playwright).
+
+
+3. Data and assets
+------------------
+
+Test images
+  test-images/04 to 18 are synthetic images made by American Dream
+  Network for the Separation Table (its scripts/make-test-images.py, no
+  third-party content), covered by the MIT License
+  (test-images/SOURCES.md). scripts/make-targets.mjs draws the test
+  targets from shapes.
+
+Garment colours (src/garments.js)
+  ADN's own estimates of common blank colours. No third-party data.
+
+Printer presets (src/machines.js)
+  Platen sizes, resolutions and file formats restated from the makers'
+  published documents, each cited by URL in the preset's `sources`;
+  values without a source are marked "default, verify". No vendor
+  files, profiles or documentation are copied in.
+
+src/assets/brand/
+  The tool marks shared with the Separation Table, made by ADN. The
+  PNGs and favicon.ico are rendered from the SVGs. The ADN name and
+  logo are trademarks of American Dream Network and are not covered by
+  the MIT License grant.
+
+Printer and RIP product names (Epson, Garment Creator 2, Brother GTX
+Graphics Lab, Kornit, ColorGate, CADlink) are named only to say
+which software loads the
+files. No vendor files, profiles or documentation are copied in.
+Product names are trademarks of their owners.
+
+Fonts: none bundled.
+
+
+4. Published methods implemented here or in the engine
+------------------------------------------------------
+
+  CIEDE2000 colour difference: Sharma, Wu and Dalal, "The CIEDE2000
+    color-difference formula", Color Research and Application, 2005
+    (Separation Table engine)
+  Yule-Nielsen modified mixing in linear reflectance, for the white
+    ink model (src/model.js) and in the engine (calib.js)

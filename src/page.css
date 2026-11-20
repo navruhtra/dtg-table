@@ -1,0 +1,26 @@
+/* DTG Table: the few parts the Separation Table's bench.css has no style for. Everything else is bench.css, so the two
+   tables look and work the same. 369: spacing in 3s, 1px rules, no radius. */
+/* six views (Art, Proof, Colour, White, Highlight, Knockout): bench.css sets three. Phones: two rows of three. */
+#view.seg{grid-template-columns:repeat(6,minmax(0,1fr))}
+#view.seg button{padding:0;letter-spacing:.02em}
+@media (max-width:960px){
+  #view.seg{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #view.seg button:nth-child(3n){border-right:0}
+  #view.seg button:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  /* no job tabs: the workspace pins at the top of the screen, not under a tab strip */
+  .pane.work > .square{top:var(--pin,0px)}
+}
+/* the platen picture (Proof with Show guides) is drawn at its shown size, labels and all: it is not scaled to the
+   padded box as the art is */
+.square .canvasbox canvas.platen{max-width:none;max-height:none}
+/* a zoomed picture is dragged to move it */
+.square .canvasbox canvas.zoomed{cursor:grab;touch-action:none}
+.links{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+.links a{color:var(--fg)}
+.machines{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.machines li{display:flex;justify-content:space-between;align-items:center;gap:9px;border:1px solid var(--line);padding:6px 9px;font-size:13px}
+ul.plain{margin:0;padding-left:18px;font-size:13px}
+#printerSrc a{color:var(--fg)}
+/* Framed in an ADN page the frame is as tall as the table, so a panel centred in the frame can open off the screen. It
+   opens at the top of the part of the frame in view, and is no taller than that part (--pin, --pvh: the page script). */
+body.framed dialog#shopPanel,body.framed dialog#helpPanel{margin-top:calc(var(--pin,0px) + 12px);margin-bottom:auto;max-height:calc(var(--pvh,100vh) - 69px)}

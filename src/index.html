@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ADN DTG Table</title>
+<meta name="description" content="DTG print files in your browser: garment-aware white underbase, garment-colour knockout, colour and white layers for your printer's own software, and a garment proof. Your art stays on your computer.">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="vendor/separation-table/bench.css">
+<link rel="stylesheet" href="page.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="mhead"><b>DTG Table</b><button type="button" id="mShop" aria-label="Shop setup"><svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M6.76 3.17 L7.43 0.9 L10.57 0.9 L11.24 3.17 L12.93 4.14 L15.23 3.59 L16.8 6.31 L15.17 8.02 L15.17 9.98 L16.8 11.69 L15.23 14.41 L12.93 13.86 L11.24 14.83 L10.57 17.1 L7.43 17.1 L6.76 14.83 L5.07 13.86 L2.77 14.41 L1.2 11.69 L2.83 9.98 L2.83 8.02 L1.2 6.31 L2.77 3.59 L5.07 4.14 Z M11.5 9 A2.5 2.5 0 1 0 6.5 9 A2.5 2.5 0 1 0 11.5 9 Z"/></svg></button></header>
+<div class="v3">
+<aside class="pane steps" id="paneSteps" aria-label="Steps">
+  <div class="brand"><div class="lab">ADN · DTG prepress</div><h1>DTG Table</h1></div>
+
+  <section class="sstep" id="step1" data-step="1" aria-labelledby="sth1">
+    <div class="sthead"><button type="button" class="stbtn" id="step1Btn" aria-expanded="false" aria-controls="step1Body"><span class="badge" id="step1Badge">1</span><span class="stt"><span class="sttitle" id="sth1">Artwork</span><span class="stsum" id="step1Sum"></span></span></button><span class="hw" data-help="art"></span><span class="stact" aria-hidden="true" id="step1Act">Open</span></div>
+    <div class="stbody" id="step1Body" hidden>
+      <p class="stlead">Drop your art in the workspace, or click it to select a file.</p>
+      <label class="filecard" id="fileCard" for="file" tabindex="0" aria-label="Replace the art: choose another file" hidden><canvas id="artThumb" width="144" height="144" aria-hidden="true"></canvas><div class="fc"><b id="artName"></b><span id="artSize"></span><span id="artInfo"></span></div><span class="fcact">Replace</span></label>
+      <button type="button" class="linkbtn" id="trySample">Try the sample design</button>
+      <div id="status" class="small statusline" role="status" aria-live="polite"></div>
+      <button type="button" class="next" data-next="2">Next: Printer / garment →</button>
+    </div>
+  </section>
+
+  <section class="sstep" id="step2" data-step="2" aria-labelledby="sth2">
+    <div class="sthead"><button type="button" class="stbtn" id="step2Btn" aria-expanded="false" aria-controls="step2Body"><span class="badge" id="step2Badge">2</span><span class="stt"><span class="sttitle" id="sth2">Printer / garment</span><span class="stsum" id="step2Sum"></span></span></button><span class="hw" data-help="machine"></span><span class="stact" aria-hidden="true" id="step2Act">Open</span></div>
+    <div class="stbody" id="step2Body" hidden>
+      <div class="field"><label class="lab" for="printer" data-help="machine">Printer</label><select id="printer"></select></div>
+      <div id="customBox" class="two" hidden>
+        <div class="field"><label class="lab" for="cW">Print width, in</label><input id="cW" type="number" min="1" max="60" step="0.25" value="14"></div>
+        <div class="field"><label class="lab" for="cH">Print height, in</label><input id="cH" type="number" min="1" max="60" step="0.25" value="16"></div>
+        <div class="field"><label class="lab" for="cDpi">File resolution, dpi</label><input id="cDpi" type="number" min="72" max="2400" step="1" value="300"></div>
+        <div class="field"><label class="lab" for="cName">Name</label><input id="cName" type="text" value="Custom printer" maxlength="80"></div>
+      </div>
+      <div class="field"><label class="lab" for="platen" data-help="platen">Platen</label><select id="platen"></select></div>
+      <div class="field"><label class="lab" for="supply" data-help="supply">White goes to the RIP as</label>
+        <select id="supply"><option value="none">The RIP makes white from the colour file</option><option value="file">A separate white file</option></select></div>
+      <div class="field"><span class="lab" data-help="garment">Garment colour · <span class="teename" id="teeName">Black</span></span>
+        <div class="chips tees" id="garments"></div></div>
+      <div class="field"><label class="lab" for="widthIn" data-help="width">Print width, in</label><div class="stepper sp"><button type="button" class="stp" data-for="widthIn" data-d="-0.5" aria-label="Width smaller">−</button><input id="widthIn" type="number" min="0.5" max="60" step="0.25" value="12"><button type="button" class="stp" data-for="widthIn" data-d="0.5" aria-label="Width larger">+</button></div></div>
+      <div class="two">
+        <div class="field"><label class="lab" for="collarIn" data-help="collar">Below the collar, in</label><input id="collarIn" type="number" min="0" max="30" step="0.25" value="3"></div>
+        <div class="field"><label class="lab" for="shiftIn" data-help="shift">Shift from centre, in</label><input id="shiftIn" type="number" min="-20" max="20" step="0.25" value="0"></div>
+      </div>
+      <div class="row"><label class="chk"><input type="checkbox" id="guides" checked> <span class="lab" data-help="guides">Show guides</span></label></div>
+      <p class="small" id="fitNote"></p>
+      <p class="small bad" id="placeWarn" role="status" hidden></p>
+      <div id="placeBox" hidden>
+        <ul class="plain" id="placeLines"></ul>
+        <p class="small">Guides are for the operator only: they are never in the colour or white files.</p>
+      </div>
+      <p class="small" id="printerSrc"></p>
+      <button type="button" class="next" data-next="3">Next: White →</button>
+    </div>
+  </section>
+
+  <section class="sstep" id="step3" data-step="3" aria-labelledby="sth3">
+    <div class="sthead"><button type="button" class="stbtn" id="step3Btn" aria-expanded="false" aria-controls="step3Body"><span class="badge" id="step3Badge">3</span><span class="stt"><span class="sttitle" id="sth3">White</span><span class="stsum" id="step3Sum"></span></span></button><span class="hw" data-help="rule"></span><span class="stact" aria-hidden="true" id="step3Act">Open</span></div>
+    <div class="stbody" id="step3Body" hidden>
+      <div class="field"><label class="lab" for="rule" data-help="rule">White under colour</label>
+        <select id="rule"><option value="full">Full white under every colour</option><option value="reach">Least white each colour needs</option></select></div>
+      <p class="small bad" id="ruleWarn" role="status" hidden></p>
+      <button type="button" class="next" data-next="4">Next: Files →</button>
+    </div>
+  </section>
+
+  <section class="sstep" id="step4" data-step="4" aria-labelledby="sth4">
+    <div class="sthead"><button type="button" class="stbtn" id="step4Btn" aria-expanded="false" aria-controls="step4Body"><span class="badge" id="step4Badge">4</span><span class="stt"><span class="sttitle" id="sth4">Files</span><span class="stsum" id="step4Sum"></span></span></button><span class="hw" data-help="files"></span><span class="stact" aria-hidden="true" id="step4Act">Open</span></div>
+    <div class="stbody" id="step4Body" hidden>
+      <div class="row"><span class="lab" data-help="files">Files</span>
+        <label class="chk"><input type="checkbox" id="fPNG" checked> PNG</label><label class="chk"><input type="checkbox" id="fTIF"> TIFF</label></div>
+      <div class="row"><label class="chk"><input type="checkbox" id="fPlace" checked> <span class="lab" data-help="sheet">Placement sheet for the operator</span></label></div>
+      <div class="row"><button class="pri big" type="button" id="export" disabled>Make files</button></div>
+      <div id="expStatus" class="small statusline" role="status" aria-live="polite"></div>
+      <ul class="links" id="links"></ul>
+      <p class="small" id="filesNote"></p>
+    </div>
+  </section>
+  <div class="stepfoot"><button type="button" id="shopOpen" aria-haspopup="dialog">Shop setup</button><button type="button" id="helpOpen" aria-haspopup="dialog">? Help</button><div class="seg tseg" id="themeSeg" role="group" aria-label="Theme"><button type="button" data-v="light" aria-pressed="false">Light</button><button type="button" data-v="dark" aria-pressed="false">Dark</button><button type="button" data-v="device" aria-pressed="false">Device</button></div></div>
+</aside>
+
+<main class="pane work" id="paneStage" aria-label="Workspace">
+  <div class="square" id="square">
+    <div class="canvasbox" id="canvasBox"><canvas id="view0" width="600" height="600" aria-label="Workspace view"></canvas></div>
+    <span class="sizebadge" id="sizeBadge" title="Print size. Set it in step 2." hidden></span>
+    <div class="busymask" id="busyMask" role="status" aria-live="polite" hidden><span class="busylogo" aria-hidden="true"></span><span class="busytext" id="busyText">Working…</span></div>
+    <button type="button" class="advrail" id="sideOpen" hidden>Advanced</button>
+    <label class="drop" id="drop" for="file" tabindex="0" aria-label="Drop your art here, or tap to select a file"><div class="dropempty"><svg class="upicon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="19" r="3.5" fill="currentColor"/><path d="M7 37l11-11 7 7 6-6 10 10" fill="none" stroke="currentColor" stroke-width="2"/><rect x="31" y="1" width="16" height="16" fill="var(--surface)"/><path d="M39 15V4M34 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><b>Drop your art here</b><span>or click to select a PNG, JPG or WebP file</span><span class="small">Your art stays on this device. It is not uploaded.</span><button type="button" class="linkbtn droptry" id="dropSample">Try the sample design</button></div></label>
+  </div>
+  <input type="file" id="file" class="vh" accept="image/png,image/jpeg,image/webp" tabindex="-1" aria-hidden="true">
+  <div class="viewbar" id="viewBar">
+    <div class="seg" id="view" role="group" aria-label="View"><button type="button" data-v="art" aria-pressed="false">Art</button><button type="button" data-v="proof" aria-pressed="true">Proof</button><button type="button" data-v="colour" aria-pressed="false">Colour</button><button type="button" data-v="white" aria-pressed="false">White</button><button type="button" data-v="highlight" aria-pressed="false">Highlight</button><button type="button" data-v="knockout" aria-pressed="false">Knockout</button></div>
+  </div>
+  <section class="rating" id="rating" aria-label="Proof">
+    <button type="button" class="drate" id="dRate" aria-expanded="false" aria-controls="rData"><b id="drNum">–</b><span class="drfacts" id="drFacts"></span><span class="mrde" id="mrDe">No art yet</span><span class="mrchk" id="drChk">Model only</span><span class="mrarr" aria-hidden="true">▾</span></button>
+    <div class="rdata" id="rData">
+      <div class="rmain"><span class="lab" data-help="proof">Proof ΔE00</span><b id="rMean">–</b><span id="rModel">model only</span></div>
+      <p class="rwhy">Print-ready files for direct-to-garment: a colour layer and white layers for your printer's own software. It does not drive the printer and does not replace the RIP. <span class="pill" id="modelPill">Model only</span> <span id="modelWhy">until measured ramps are imported.</span></p>
+      <span class="lab rnumlab" data-help="numbers">Numbers</span>
+      <div class="stats" id="stats" aria-live="polite">
+        <div><span class="lab">White</span><b id="sWhite">–</b><span class="small">full-coverage equivalent</span></div>
+        <div><span class="lab">Highlight</span><b id="sHl">–</b></div>
+        <div><span class="lab">Knocked out</span><b id="sKo">–</b><span class="small">of the art</span></div>
+        <div><span class="lab">Proof ΔE00</span><b id="sDe">–</b><span class="small" id="sDeSub"></span></div>
+        <div><span class="lab">File</span><b id="sPpi">–</b><span class="small" id="sSize"></span></div>
+      </div>
+    </div>
+  </section>
+  <div id="zoomBox" hidden><div class="zoomline" id="zoomSteps" role="group" aria-label="Zoom"><button type="button" class="zstep" id="zStep" aria-label="Fit">Fit</button><div class="zoomrow"><input type="range" id="zoomSlider" min="-2" max="3" step="any" value="-2" aria-label="Zoom, from Fit to 800%"><output id="zoomPct" class="ztip" for="zoomSlider">Fit</output></div><button type="button" class="z100b" id="z100">100%</button></div><span class="small" id="inspWhere"></span></div>
+</main>
+
+<aside class="pane side" id="paneSide" aria-label="Advanced">
+  <header class="advhd"><div><h2>Advanced Settings</h2><span class="advtitle" id="sideTitle"></span></div><button type="button" class="ibtn" id="sideClose" aria-label="Close Advanced Settings">×</button></header>
+  <div class="sidesec" data-for="1">
+    <section class="tips"><span class="panelab">Good art</span><ul><li>PNG, JPG or WebP.</li><li>PNG with transparency is best: the garment shows through.</li><li>Under 150 pixels for each inch of print width, the page warns.</li></ul></section>
+  </div>
+  <div class="sidesec" data-for="2">
+    <section class="tips"><span class="panelab">Garment</span><ul><li id="gName"></li><li>The garment colours are ADN's estimates of common blank colours, not measurements.</li><li>White garments get no white layer. Light and dark garments get white where the colour needs it.</li></ul></section>
+  </div>
+  <div class="sidesec prows" data-for="3">
+    <div class="pkey"><span><i class="pm hand"></i>You set</span><span><i class="pm"></i>Standard</span></div>
+    <details class="pgrp" open><summary><span>White layer</span><span class="psum" data-sum="w"></span></summary>
+      <div class="prow sl"><i class="pm" data-pm="strength"></i><label class="pl" for="strength" data-help="strength">White density</label><b id="strengthV"></b><input type="range" id="strength" min="0.3" max="1" step="0.05" value="1"></div>
+      <div class="prow sl"><i class="pm" data-pm="choke"></i><label class="pl" for="choke" data-help="choke">Choke, mm</label><b id="chokeV"></b><input type="range" id="choke" min="0" max="1" step="0.05" value="0.2"></div>
+      <div class="prow"><i class="pm" data-pm="hl"></i><label class="pl" for="hl" data-help="highlight">Highlight white under near-white art</label><div class="pc"><input type="checkbox" id="hl" checked></div></div>
+    </details>
+    <details class="pgrp" open><summary><span>Knockout</span><span class="psum" data-sum="k"></span></summary>
+      <div class="prow"><i class="pm" data-pm="ko"></i><label class="pl" for="ko" data-help="knockout">Knock out the garment colour</label><div class="pc"><input type="checkbox" id="ko" checked></div></div>
+      <div class="prow sl"><i class="pm" data-pm="koTol"></i><label class="pl" for="koTol" data-help="koTol">Knockout tolerance, ΔE00</label><b id="koTolV"></b><input type="range" id="koTol" min="1" max="20" step="1" value="6"></div>
+    </details>
+    <button type="button" class="pdef" id="whiteDef">Default</button>
+  </div>
+  <div class="sidesec" data-for="4">
+    <section class="tips"><span class="panelab">The files</span><ul><li>Colour: the art with the garment colour knocked out.</li><li>White and highlight: 8-bit grey. Black is full white ink, the way a spot channel reads.</li><li>Files are made at the art's full resolution and carry their print resolution.</li><li>The placement sheet is for the operator, not the RIP.</li></ul></section>
+  </div>
+</aside>
+</div>
+
+<nav class="mnav" id="mNav" aria-label="Step navigation"><div class="mprog" id="mProg" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"><i></i><i></i><i></i><i></i></div><div class="mbtns"><button type="button" id="mBack">← Back</button><button type="button" class="pri" id="mNext">Next →</button></div></nav>
+
+<dialog id="shopPanel" aria-labelledby="hShop">
+  <div class="row between"><h2 id="hShop">Shop setup</h2><button type="button" class="dclose" data-close="shopPanel">Close</button></div>
+  <section aria-labelledby="hMach">
+    <div class="row between"><h2 id="hMach" data-help="machine">Saved machines</h2><span class="pill" id="machPill"></span></div>
+    <ul class="machines" id="machList"></ul>
+    <div class="row"><button type="button" class="pri" id="saveMachine">Save the machine in step 2</button></div>
+    <p class="small" id="savedNote" role="status"></p>
+  </section>
+  <section aria-labelledby="hRamps">
+    <div class="row between"><h2 id="hRamps" data-help="ramps">Measured ramps</h2><span class="pill" id="rampPill">Model only</span></div>
+    <p class="small">A CSV of measured patches (ink,tint,L,a,b) from the DTG test targets. The white ramp sets the white model; without it every number here is model only.</p>
+    <div class="row"><button type="button" id="rampsOpen">Import a ramp CSV</button></div>
+    <input type="file" id="ramps" class="vh" accept=".csv,text/csv,text/plain" aria-label="Ramp CSV" tabindex="-1">
+    <div class="field" id="rampSetBox" hidden><label class="lab" for="rampSet">White ramp</label><select id="rampSet"></select></div>
+    <ul class="plain" id="rampReport"></ul>
+  </section>
+</dialog>
+<dialog id="helpPanel" aria-labelledby="hHelp">
+  <div class="row between"><h2 id="hHelp">Help</h2><button type="button" id="helpClose" aria-label="Close help">Close</button></div>
+  <input type="search" id="helpQ" placeholder="Search: white, choke, knockout, RIP…" aria-label="Search help">
+  <div id="helpList"></div>
+  <p class="small" id="helpNone" hidden>Nothing found. Try a shorter word, like "white" or "RIP".</p>
+  <p class="small">DTG Table · open source (MIT). Printer data is cited per preset; anything not sourced is marked "default, verify". The ADN name and logo are not MIT licensed.</p>
+</dialog>
+</body>
+</html>
